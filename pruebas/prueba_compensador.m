@@ -1,0 +1,23 @@
+s=-0.2857+1.3996*j
+%s=-2.5+4.33*j
+ft=40/(s^2+0.5*s)
+v=abs(ft)
+syms A B x
+A=solve(sqrt(1.3996^2+(-0.2857-A)^2)==x,A)
+A=A(1)
+B=solve(sqrt(1.3996^2+(-0.2857-B)^2)==v*x,B)
+B=B(1)
+ec=(v*x)^2+x^2-2*v*x^2*cosd(8)-(A-B)^2
+x=solve(ec==0,x)
+x=vpa(x)
+x=x(2)
+A=eval(A)
+B=eval(B)
+ft=(s-A)/(s-B)
+abs(ft)
+a=atan2d(imag(ft),real(ft))
+a=vpa(a)
+t1=-1/A
+b=-t1*B
+t2=10
+p2=1/(b*t2)
